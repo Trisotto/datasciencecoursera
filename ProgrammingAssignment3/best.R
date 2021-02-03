@@ -29,7 +29,7 @@ best <- function(state, outcome) {
         names(data) <- c("hospital","heart attack","heart failure","pneumonia")
         
         # Convert outcome columns to numeric
-        data[,2:4] <- apply(data[,2:4],2,function(x) as.numeric(x))
+        data[,2:4] <- apply(data[,2:4],2,function(x) suppressWarnings(as.numeric(x)))
         
         # Remove NA values
         data <- data[complete.cases(data),]
