@@ -19,7 +19,7 @@ rankall <- function(outcome, num = 'best') {
         data[,3:5] <- apply(data[,3:5],2,function(x) suppressWarnings(as.numeric(x)))
         
         # Remove NA values
-        data <- data[complete.cases(data),]
+        data <- data[complete.cases(data[,outcome]),]
         
         # Sort data by state, outcome and hospital
         data <- data[order(data$state,data[outcome],data$hospital),]

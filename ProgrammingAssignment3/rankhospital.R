@@ -24,7 +24,7 @@ rankhospital <- function(state, outcome, num = 'best') {
         data[,2:4] <- apply(data[,2:4],2,function(x) suppressWarnings(as.numeric(x)))
         
         # Remove NA values
-        data <- data[complete.cases(data),]
+        data <- data[complete.cases(data[,outcome]),]
         
         # Sort data in ascending order
         data <- data[order(data[outcome],data$hospital),]
